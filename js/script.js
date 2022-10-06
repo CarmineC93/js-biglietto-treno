@@ -1,17 +1,22 @@
 // INPUT
     // Chiedere all'utente distanza da percorrere in Km e convertire in numero
     const userDestination = parseInt(prompt("Quanti Km dista la tua destinazione?"));
-    if (userDestination !== Number)
-        {alert("Per favore scrivi un numero");
-        }
+    console.log(userDestination, typeof(userDestination));
+    //un messaggio per l'utente che inserisca lettere/simboli anzichè numeri
+    if (isNaN(userDestination)) {
+        alert ("Inserisci un numero")
+        };
+
     //verifica
     console.log(userDestination);
 
     //Chiedere età utente e convertire in numero
     const userAge = parseInt(prompt("Quanti anni hai?"));
-    if (userDestination !== Number)
-        {alert("Per favore scrivi un numero");
-        }
+    //un messaggio per l'utente che inserisca lettere/simboli anzichè numeri
+    if (isNaN(userAge)) {
+        alert ("Inserisci un numero")
+        };
+
     //verifica
     console.log(userAge);
 
