@@ -1,19 +1,17 @@
-/* Il programma dovrà chiedere all'utente il numero di chilometri che vuole percorrere e l'età del passeggero.
- Sulla base di queste informazioni dovrà calcolare il prezzo totale del viaggio, secondo queste regole:
- il prezzo del biglietto è definito in base ai km (0.21 € al km)
- va applicato uno sconto del 20% per i minorenni
- va applicato uno sconto del 40% per gli over 65.
- L'output del prezzo finale va messo fuori in forma umana 
- (con massimo due decimali, per indicare centesimi sul prezzo). Questo richiederà un minimo di ricerca. */
-
 // INPUT
     // Chiedere all'utente distanza da percorrere in Km e convertire in numero
     const userDestination = parseInt(prompt("Quanti Km dista la tua destinazione?"));
+    if (userDestination !== Number)
+        {alert("Per favore scrivi un numero");
+        }
     //verifica
     console.log(userDestination);
 
     //Chiedere età utente e convertire in numero
     const userAge = parseInt(prompt("Quanti anni hai?"));
+    if (userDestination !== Number)
+        {alert("Per favore scrivi un numero");
+        }
     //verifica
     console.log(userAge);
 
@@ -36,16 +34,13 @@
         document.getElementById("reduction").innerHTML = `Hai diritto ad uno sconto di <span class="text-success"> ${(ticketPrice * 0.2).toFixed(2)}€ </span>.`;
         //verifica
         console.log(finalTicket);
-
     } //Se l'età dell'utente 65, applicare sconto 40% al prezzo del biglietto
       else if (userAge >= 65) { 
         finalTicket = ticketPrice - (ticketPrice * 0.4);
         document.getElementById("reduction").innerHTML = `Hai diritto ad uno sconto di <span class="text-success"> ${(ticketPrice * 0.4).toFixed(2)}€ </span>.`;
         //verifica
         console.log(finalTicket);
-
       };  //Altrimenti il prezzo resta invariato.
-
 
       //Converto il numero ottenuto della variabile finalTicket in un valore leggibile dall'utente come valuta euro
       let euroTicket = finalTicket.toFixed(2);
@@ -56,12 +51,12 @@
 //OUTPUT
     //Mostrare all'utente i dati che ha inserito
     document.getElementById("user-kms").innerHTML = `La distanza da percorrere da te selezionata è di <span class="text-success"> ${userDestination} km </span>.`;
-    document.getElementById("user-age").innerHTML = `L'età dichiarata è di: <span class="text-success"> ${userAge} anni </span>.`
+    document.getElementById("user-age").innerHTML = `L'età dichiarata è di <span class="text-success"> ${userAge} anni </span>.`
 
     //Mostrare all'utente il prezzo del biglietto in relazione ai dati inseriti.
     document.getElementById("ticket").innerHTML = `Il prezzo del tuo biglietto sarà di: <span class="text-success"> ${euroTicket}€</span> `;
 
-    //mostrare un messaggio all'utente in cui si rende noto il prezzo base 
+    //Mostrare un messaggio all'utente in cui si rende noto il prezzo base 
     if ( userAge<18 || userAge >= 65) {
         document.getElementById("ticket-plus").innerHTML = `(anzichè <span class="text-decoration-line-through"> ${ticketPrice.toFixed(2)}</span>€)`;
     }
